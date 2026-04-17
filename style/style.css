@@ -1,0 +1,132 @@
+:root {
+  --primary-color-pikachu: #ffeb3b;
+  --second-color-pikachu: #ff5722;
+  --third-color-pikachu: #212121;
+  --font-color-pikachu: #ffffff;
+
+  --primary-color-squirtle: #2196f3;
+  --second-color-squirtle: #795548;
+  --trhird-color-squirtle: #ffeb3b;
+  --font-color-squirtle: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem 1rem 4rem;
+  background-color: var(--primary-color-pikachu);
+  color: var(--font-color-pikachu);
+  text-decoration: nones;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--third-color-pikachu);
+  transition: 1s all ease-out;
+  cursor: pointer;
+}
+
+header .logo h1:hover {
+  opacity: 0.75;
+}
+
+header nav .navigation-content {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+header nav .navigation-content li {
+  text-decoration: none;
+  list-style: none;
+}
+
+header nav .navigation-content li a {
+  position: relative;
+  text-decoration: none;
+  color: var(--third-color-pikachu);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: 0.4s all ease-in-out;
+  padding-bottom: 0.2rem;
+}
+
+header nav .navigation-content li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.2rem;
+  background: var(--second-color-pikachu); /* Warna garis */
+
+  /* State awal: tersembunyi */
+  transform: scaleX(0);
+  transform-origin: left; /* Mulai animasi dari kiri */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.8;
+}
+
+/* State hover: garis muncul */
+.navigation-content li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Aksesibilitas: fokus keyboard */
+.navigation-content li a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+header .menu .menu-logo {
+  stroke: #333;
+  cursor: pointer;
+}
+
+header .menu {
+  display: none;
+}
+
+main {
+  padding: 2rem 4rem;
+}
+
+/* Media Query For Tablet Devices */
+@media screen and (max-width: 880px) {
+  header nav {
+    display: none;
+  }
+
+  header .menu {
+    display: block;
+  }
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 580px) {
+  header nav {
+    display: none;
+  }
+
+  header .menu {
+    display: block;
+  }
+}
